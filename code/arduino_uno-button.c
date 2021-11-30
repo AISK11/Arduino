@@ -1,3 +1,8 @@
+/* Arduino IDE Set up:
+ * Tools -> Port -> /dev/ttyACM0
+ * Tools -> Board -> Arduino Uno
+ */
+
 /* Schematic
  * Arduino UNO GPIO D8 <=> Button
  * GROUND              <=> Button
