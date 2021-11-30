@@ -49,18 +49,18 @@ void checkButtonPress() {
   
   /* if previous state was LOW (pressed) and current is HIGH (free) */
   if(btn1_last_state == LOW && btn1_current_state == HIGH) {
-  /* change BUTTON1 state */
-  if (btn1_isOn) {
-    btn1_isOn = 0;
-    Serial.println("OFF");
+    /* change BUTTON1 state */
+    if (btn1_isOn) {
+      btn1_isOn = 0;
+      Serial.println("OFF");
+    }
+    else {
+      btn1_isOn = 1;
+      Serial.println("ON");
+    }
+    /* added delay, to prevent mutliple press detection in single press */
+    delay(50);
   }
-  else {
-    btn1_isOn = 1;
-    Serial.println("ON");
-  }
-  /* added delay, to prevent mutliple press detection in single press */
-  delay(50);
-}
 
   /* update last state, so event is not executed multiple
    * times during single button press */
