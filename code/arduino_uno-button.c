@@ -3,11 +3,14 @@
  * Tools -> Board -> Arduino Uno
  */
 
-/* Schematic
+/* Schematic:
  * Arduino UNO GPIO D8 <=> Button
  * GROUND              <=> Button
  */
 
+/* Docs:
+ * https://arduinogetstarted.com/tutorials/arduino-button
+ */ 
 #define BUTTON1_PIN 8 /* GPIO8 pin connected to button */
 
 unsigned char btn1_last_state = HIGH; /* the previous state from the input pin */
