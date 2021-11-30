@@ -1,11 +1,17 @@
+/************************************************
+ * Author: AISK11                               *
+ * Description: code to toggle (ON/OFF) button. *
+ * Date Created: 2021-11-30                     *
+ * Last Updated: 2021-11-30                     *
+ ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
  ** Tools -> Board -> Arduino Uno
  */
 
 /* Schematic:
- ** Arduino UNO GPIO D8 <=> Button
- ** GROUND              <=> Button
+ ** Arduino UNO GPIO D<2;13> <=> Button
+ ** GROUND                   <=> Button
  */
 
 /* Docs:
@@ -14,7 +20,7 @@
  ** Button:
  *** https://arduinogetstarted.com/tutorials/arduino-button
  */ 
-#define BUTTON1_PIN 8 /* GPIO8 pin connected to button */
+#define BUTTON1_PIN 2 /* GPIO <2;13> pin connected to button */
 
 unsigned char btn1_last_state = HIGH; /* the previous state from the input pin */
 unsigned char btn1_current_state;     /* the current reading from the input pin */
