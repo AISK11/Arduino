@@ -11,7 +11,7 @@
 /* Docs:
  ** Arduino Uno:
  *** https://store.arduino.cc/products/arduino-uno-rev3/
- ** Button
+ ** Button:
  *** https://arduinogetstarted.com/tutorials/arduino-button
  */ 
 #define BUTTON1_PIN 8 /* GPIO8 pin connected to button */
