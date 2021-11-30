@@ -1,15 +1,18 @@
 /* Arduino IDE Set up:
- * Tools -> Port -> /dev/ttyACM0
- * Tools -> Board -> Arduino Uno
+ ** Tools -> Port -> /dev/ttyACM0
+ ** Tools -> Board -> Arduino Uno
  */
 
 /* Schematic:
- * Arduino UNO GPIO D8 <=> Button
- * GROUND              <=> Button
+ ** Arduino UNO GPIO D8 <=> Button
+ ** GROUND              <=> Button
  */
 
 /* Docs:
- * https://arduinogetstarted.com/tutorials/arduino-button
+ ** Arduino Uno:
+ *** https://store.arduino.cc/products/arduino-uno-rev3/
+ ** Button
+ *** https://arduinogetstarted.com/tutorials/arduino-button
  */ 
 #define BUTTON1_PIN 8 /* GPIO8 pin connected to button */
 
@@ -22,8 +25,8 @@ void setup() {
   Serial.begin(9600);
 
   /* initialize the pushbutton pin as an pull-up input
-  *  the pull-up input pin will be HIGH when the switch 
-  *  is open and LOW when the switch is closed */
+   * the pull-up input pin will be HIGH when the switch 
+   * is open and LOW when the switch is closed */
   pinMode(BUTTON1_PIN, INPUT_PULLUP);
 }
 
@@ -48,7 +51,7 @@ void checkButtonPress() {
 }
 
   /* update last state, so event is not executed multiple
-   *  times during single button press */
+   * times during single button press */
   btn1_last_state = btn1_current_state;
 }
 
