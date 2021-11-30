@@ -22,8 +22,8 @@
  */ 
 
 /* Theory:
- * Button is Free = 1
- * Button is Pressed = 0 
+ * Button is Free    = 1 (HIGH)
+ * Button is Pressed = 0 (LOW)
  */
  
 #define BUTTON1_PIN 2 /* GPIO <2;13> pin connected to button */
