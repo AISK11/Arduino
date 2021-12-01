@@ -30,7 +30,6 @@ void timerWithoutDelayCheck() {
   /* if millis() - last_millis_count > timer_without_delay;
    *  e.g. 74361 - 73360 > 1000 */
   if((millis() - last_millis_count) > timer_without_delay) {
-
     /* Execute function when timer passed */
     timerWithoutDelayExecute();
     
