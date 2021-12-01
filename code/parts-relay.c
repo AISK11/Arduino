@@ -44,15 +44,17 @@ void setup() {
 }
 
 
+/* Turn the Relay OFF */
 void relayTurnOff() {
-  Serial.println("Relay is OFF.");
   digitalWrite(RELAY_PIN, HIGH);
+  Serial.println("Relay is OFF.");
 }
 
 
+/* Turn the Relay ON */
 void relayTurnOn() {
-  Serial.println("Relay is ON.");
   digitalWrite(RELAY_PIN, LOW);
+  Serial.println("Relay is ON.");
 }
 
 
