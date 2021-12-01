@@ -10,8 +10,9 @@
  */
 
 /* Schematic:
- ** Arduino UNO GPIO D<2;13> <=> Relay
- ** GROUND                   <=> Relay
+ ** Relay:
+ *** Arduino UNO GPIO D<2;13> <=> Relay
+ *** GROUND                   <=> Relay
  */
 
 /* Docs:
