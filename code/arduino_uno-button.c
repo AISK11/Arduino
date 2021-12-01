@@ -27,12 +27,12 @@
  */
 
 
-#define BUTTON1_PIN 2 /* GPIO <2;13> pin connected to button */
+#define BUTTON_PIN 2 /* GPIO <2;13> pin connected to button */
 
 
-unsigned char btn1_last_state = HIGH; /* the previous state from the input pin, initial HIGH -> from OFF to ON 1st time */
-unsigned char btn1_current_state;     /* the current reading from the input pin */
-unsigned char btn1_isOn = 0; 
+unsigned char btn_last_state = HIGH; /* the previous state from the input pin, initial HIGH -> from OFF to ON 1st time */
+unsigned char btn_current_state;     /* the current reading from the input pin */
+unsigned char btn_isOn = 0; 
 
 
 void setup() {
@@ -43,24 +43,24 @@ void setup() {
    * the pull-up input pin will be HIGH when the switch 
    * is open and LOW when the switch is closed
    * (good for DIGITAL INPUT devices) */
-  pinMode(BUTTON1_PIN, INPUT_PULLUP);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
 }
 
 
 void checkButtonPress() {
   /* read the current state of the switch/button */
-  btn1_current_state = digitalRead(BUTTON1_PIN);
+  btn_current_state = digitalRead(BUTTON_PIN);
   
   /* if previous state was LOW (pressed) and current is HIGH (free) */
-  if(btn1_last_state == LOW && btn1_current_state == HIGH) {
+  if(btn_last_state == LOW && btn_current_state == HIGH) {
     /* change BUTTON1 state */
-    if (btn1_isOn) {
-      btn1_isOn = 0;
-      buttonIsOff(); 
+    if (btn_isOn) {
+      btn_isOn = 0;
+      btnIsOff(); 
     }
     else {
-      btn1_isOn = 1;
-      buttonIsOn();
+      btn_isOn = 1;
+      btnIsOn();
     }
     /* added delay, to prevent mutliple press detection in single press */
     delay(50);
@@ -68,16 +68,16 @@ void checkButtonPress() {
 
   /* update last state, so event is not executed multiple
    * times during single button press */
-  btn1_last_state = btn1_current_state;
+  btn_last_state = btn_current_state;
 }
 
 
-void buttonIsOff() {
+void btnIsOff() {
   Serial.println("OFF");
 }
 
 
-void buttonIsOn() {
+void btnIsOn() {
   Serial.println("ON");
 }
 
