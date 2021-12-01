@@ -1,3 +1,10 @@
+/************************************************
+ * Author: AISK11                               *
+ * Description: code to get temperature value   *
+ *              from LM35 temperature sensor.   *
+ * Date Created: 2021-12-01                     *
+ * Last Updated: 2021-12-01                     *
+ ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
  ** Tools -> Board -> Arduino Uno
@@ -22,7 +29,8 @@
  ** Reading Resolution:     5000mv / 1024 = 4.88 mV
  ** Temperature Resolution: 0.488 °C
  */
- 
+
+
 #define PIN_LM35       A0     /* GPIO <A0;A5> pin connected to LM35 OUTPUT */
 #define ADC_VREF_mV    5000.0 /* 5000 because 5V */
 #define ADC_RESOLUTION 1024.0 /* 5000 / 1024 = 4.88 mV and Temperature Resolution is 0.488 °C */
