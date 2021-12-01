@@ -34,7 +34,7 @@
 
 unsigned char btn_last_state = HIGH; /* the previous state from the input pin, initial HIGH -> from OFF to ON 1st time */
 unsigned char btn_current_state;     /* the current reading from the input pin */
-unsigned char btn_isOn = 0;          /* button is Off on the start */
+unsigned char btn_state = 0;         /* button is Off on the start */
 
 
 void setup() {
@@ -49,6 +49,9 @@ void setup() {
 }
 
 
+/* this function executes, when User presses
+ * button (but code is executed on release of the button
+ * something like Unity C# OnKeyUP() */
 void checkButtonPress() {
   /* read the current state of the switch/button */
   btn_current_state = digitalRead(BUTTON_PIN);
@@ -56,12 +59,12 @@ void checkButtonPress() {
   /* if previous state was LOW (pressed) and current is HIGH (free) */
   if(btn_last_state == LOW && btn_current_state == HIGH) {
     /* change BUTTON state */
-    if (btn_isOn) {
-      btn_isOn = 0;
+    if (btn_state) {
+      btn_state = 0;
       btnIsOff(); 
     }
     else {
-      btn_isOn = 1;
+      btn_state = 1;
       btnIsOn();
     }
     /* added delay, to prevent mutliple press detection in single press */
@@ -74,11 +77,13 @@ void checkButtonPress() {
 }
 
 
+/* this function executes, when button state is 1 (ON) */
 void btnIsOff() {
   Serial.println("OFF");
 }
 
 
+/* this function executes, when button state is 0 (OFF) */
 void btnIsOn() {
   Serial.println("ON");
 }
