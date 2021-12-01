@@ -55,7 +55,7 @@ void checkButtonPress() {
   
   /* if previous state was LOW (pressed) and current is HIGH (free) */
   if(btn_last_state == LOW && btn_current_state == HIGH) {
-    /* change BUTTON1 state */
+    /* change BUTTON state */
     if (btn_isOn) {
       btn_isOn = 0;
       btnIsOff(); 
