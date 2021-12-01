@@ -18,3 +18,9 @@
  *** Arduino UNO A<0;5> <=> LCD I2C SCL
  */
 
+/* Download "LiquidCrystal I2C" library
+ ** Sketch -> Include Library -> Manage Libraries -> LiquidCrystal I2C 
+ */
+
+
+#include <LiquidCrystal_I2C.h> /* Import LCD I2C library */
