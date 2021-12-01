@@ -12,7 +12,7 @@
 /* Schematic:
  ** Button:
  *** Arduino UNO GPIO D<2;13> <=> Button
- *** GROUND                   <=> Button
+ *** Arduino UNO GROUND       <=> Button
  */
 
 /* Docs:
