@@ -29,10 +29,10 @@
  */
 
 
-#define BUTTON_PIN 2 /* GPIO <2;13> pin connected to Button */
+#define PIN_BUTTON 2 /* GPIO <2;13> pin connected to Button */
 
 
-unsigned char btn_last_state = HIGH; /* the previous state from the input pin, initial HIGH -> from OFF to ON 1st time */
+unsigned char btn_last_state = HIGH; /* the previous state from the input pin, initial HIGH -> start in OFF */
 unsigned char btn_current_state;     /* the current reading from the input pin */
 unsigned char btn_state = 0;         /* button is Off on the start */
 
@@ -45,7 +45,7 @@ void setup() {
    * the pull-up input pin will be HIGH when the switch 
    * is open and LOW when the switch is closed
    * (good for DIGITAL INPUT devices) */
-  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  pinMode(PIN_BUTTON, INPUT_PULLUP);
 }
 
 
@@ -54,7 +54,7 @@ void setup() {
  * something like Unity C# OnKeyUP() */
 void checkButtonPress() {
   /* read the current state of the switch/button */
-  btn_current_state = digitalRead(BUTTON_PIN);
+  btn_current_state = digitalRead(PIN_BUTTON);
   
   /* if previous state was LOW (pressed) and current is HIGH (free) */
   if(btn_last_state == LOW && btn_current_state == HIGH) {
