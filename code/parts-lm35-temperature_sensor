@@ -1,0 +1,29 @@
+/* Arduino IDE Set up:
+ ** Tools -> Port -> /dev/ttyACM0
+ ** Tools -> Board -> Arduino Uno
+ */
+
+/* Schematic:
+ ** LM35:
+ *** Arduino UNO 5V     <=> LM35 VCC
+ *** Arduino UNO A<0;5> <=> LM35 OUT
+ *** Arduino UNO        <=> LM35 GND
+ */
+
+/* Docs:
+ ** Arduino Uno:
+ *** https://store.arduino.cc/products/arduino-uno-rev3/
+ ** LM35:
+ *** https://arduinogetstarted.com/tutorials/arduino-lm35-temperature-sensor
+ */ 
+
+/* Theory:
+ ** Temperature range:      0 - 500 °C
+ ** Reading Resolution:     5000mv / 1024 = 4.88 mV
+ ** Temperature Resolution: 0.488 °C
+ */
+ 
+#define PIN_LM35       A0     /* GPIO <A0;A5> pin connected to LM35 OUTPUT */
+#define ADC_VREF_mV    5000.0 /* 5000 because 5V */
+#define ADC_RESOLUTION 1024.0 /* 5000 / 1024 = 4.88 mV and Temperature Resolution is 0.488 °C */
+
