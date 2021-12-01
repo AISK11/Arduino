@@ -10,8 +10,9 @@
  */
 
 /* Schematic:
- ** Arduino UNO GPIO D<2;13> <=> Button
- ** GROUND                   <=> Button
+ ** Button:
+ *** Arduino UNO GPIO D<2;13> <=> Button
+ *** GROUND                   <=> Button
  */
 
 /* Docs:
@@ -22,8 +23,9 @@
  */ 
 
 /* Theory:
- ** Button is Free    = 1 (HIGH)
- ** Button is Pressed = 0 (LOW)
+ ** Button:
+ *** Button is Free    = 1 (HIGH)
+ *** Button is Pressed = 0 (LOW)
  */
 
 
