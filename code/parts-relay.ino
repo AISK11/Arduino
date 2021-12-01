@@ -46,7 +46,7 @@ void setup() {
 
 /* Turn the Relay OFF */
 void relayTurnOff() {
-  digitalWrite(RELAY_PIN, HIGH) /* sets: OFF = 1 (HIGH) */
+  digitalWrite(RELAY_PIN, HIGH); /* sets: OFF = 1 (HIGH) */
   unsigned char relay_state = digitalRead(RELAY_PIN); /* reads 1 */
   Serial.print("Relay is in state: ");
   Serial.print(relay_state);
