@@ -24,8 +24,8 @@
 
 /* Theory:
  ** Relay:
- *** Relay is OFF = 1 (HIGH)
- *** Relay is ON = 0 (LOW)
+ *** Relay is OFF = 0 (HIGH)
+ *** Relay is ON = 1 (LOW)
  */
 
 
