@@ -55,7 +55,7 @@ void lcdMessage() {
   delay(1000);
 
   lcd.setCursor(0, 0);                 /* move cursor   to (0, 0) */
-  lcd.print("Bye World!");           /* print message at (0, 0) */
+  lcd.print("Bye World!");             /* print message at (0, 0) */
   lcd.setCursor(0, 1);                 /* move cursor   to (0, 1) */
   lcd.print("--------------------");   /* print message at (0, 0) */  
 
