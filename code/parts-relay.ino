@@ -13,7 +13,7 @@
  ** Relay:
  *** Arduino UNO 5V           <=> Relay VCC
  *** Arduino UNO GPIO D<2;13> <=> Relay IN
- *** Arduino UNO              <=> Relay GND
+ *** Arduino UNO GROUND       <=> Relay GND
  */
 
 /* Docs:
