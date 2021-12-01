@@ -17,8 +17,8 @@
 /* Docs:
  ** Arduino Uno:
  *** https://store.arduino.cc/products/arduino-uno-rev3/
- ** Button:
- *** https://arduinogetstarted.com/tutorials/arduino-button
+ ** Relay:
+ *** https://arduinogetstarted.com/tutorials/arduino-relay
  */ 
 
 /* Theory:
