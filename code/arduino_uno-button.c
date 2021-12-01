@@ -25,12 +25,15 @@
  * Button is Free    = 1 (HIGH)
  * Button is Pressed = 0 (LOW)
  */
- 
+
+
 #define BUTTON1_PIN 2 /* GPIO <2;13> pin connected to button */
+
 
 unsigned char btn1_last_state = HIGH; /* the previous state from the input pin, initial HIGH -> from OFF to ON 1st time */
 unsigned char btn1_current_state;     /* the current reading from the input pin */
 unsigned char btn1_isOn = 0; 
+
 
 void setup() {
   /* initialize serial communication at 9600 bits per second */
