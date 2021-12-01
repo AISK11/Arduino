@@ -24,3 +24,7 @@
 
 
 #include <LiquidCrystal_I2C.h> /* Import LCD I2C library */
+
+
+LiquidCrystal_I2C lcd(0x27, 20, 4); /* I2C address 0x27, 20 column and 4 rows */
+
