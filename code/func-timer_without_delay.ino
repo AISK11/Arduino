@@ -1,6 +1,7 @@
 /************************************************
  * Author: AISK11                               *
- * Description: code to toggle (ON/OFF) BUTTON. *
+ * Description: function to provide delay, but  *
+ *              other code can still run        *
  * Date Created: 2021-12-01                     *
  * Last Updated: 2021-12-01                     *
  ************************************************/
