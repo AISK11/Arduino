@@ -14,8 +14,8 @@
  ** LCD I2C:
  *** Arduino UNO GROUND <=> LCD I2C GND
  *** Arduino UNO 5V     <=> LCD I2C VCC
- *** Arduino UNO A<0;5> <=> LCD I2C SDA 
- *** Arduino UNO A<0;5> <=> LCD I2C SCL
+ *** Arduino UNO A4     <=> LCD I2C SDA 
+ *** Arduino UNO A5     <=> LCD I2C SCL
  */
 
 /* Download "LiquidCrystal I2C" library
