@@ -25,8 +25,8 @@
 
 /* Theory:
  ** Relay:
- *** Relay is OFF = 1 (HIGH) ; green LED is OFF
- *** Relay is ON  = 0 (LOW)  ; green LED is ON
+ *** Relay is OFF = 1 (HIGH) AKA 5V ; green LED is OFF
+ *** Relay is ON  = 0 (LOW)  AKA 0V ; green LED is ON
  */
 
 
