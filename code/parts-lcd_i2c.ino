@@ -27,7 +27,7 @@
  */
 
 /* Library:
- ** Download "LiquidCrystal I2C" library
+ ** Download "LiquidCrystal I2C" lib:
  *** Sketch -> Include Library -> Manage Libraries -> LiquidCrystal I2C 
  */
 
