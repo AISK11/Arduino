@@ -2,7 +2,7 @@
  * Author: AISK11                               *
  * Description: code to toggle (ON/OFF) button. *
  * Date Created: 2021-11-30                     *
- * Last Updated: 2021-11-30                     *
+ * Last Updated: 2021-12-01                     *
  ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
@@ -55,11 +55,11 @@ void checkButtonPress() {
     /* change BUTTON1 state */
     if (btn1_isOn) {
       btn1_isOn = 0;
-      Serial.println("OFF");
+      buttonIsOff(); 
     }
     else {
       btn1_isOn = 1;
-      Serial.println("ON");
+      buttonIsOn();
     }
     /* added delay, to prevent mutliple press detection in single press */
     delay(50);
@@ -68,6 +68,16 @@ void checkButtonPress() {
   /* update last state, so event is not executed multiple
    * times during single button press */
   btn1_last_state = btn1_current_state;
+}
+
+
+void buttonIsOff() {
+  Serial.println("OFF");
+}
+
+
+void buttonIsOn() {
+  Serial.println("ON");
 }
 
 
