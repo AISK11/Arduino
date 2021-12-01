@@ -22,8 +22,8 @@
  */ 
 
 /* Theory:
- * Button is Free    = 1 (HIGH)
- * Button is Pressed = 0 (LOW)
+ ** Button is Free    = 1 (HIGH)
+ ** Button is Pressed = 0 (LOW)
  */
 
 
