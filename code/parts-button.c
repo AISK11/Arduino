@@ -60,11 +60,15 @@ void checkButtonPress() {
   if(btn_last_state == LOW && btn_current_state == HIGH) {
     /* change BUTTON state */
     if (btn_state) {
+      /* if was ON previously, now is OFF */
       btn_state = 0;
+      /* execute code for button OFF state */
       btnIsOff(); 
     }
     else {
+      /* if was OFF previously, now is ON */
       btn_state = 1;
+      /* execute code for button OFF state */
       btnIsOn();
     }
     /* added delay, to prevent mutliple press detection in single press */
