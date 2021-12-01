@@ -24,8 +24,8 @@
 
 /* Theory:
  ** Relay:
- *** Relay is OFF = 0 (HIGH)
- *** Relay is ON = 1 (LOW)
+ *** Relay is OFF = 1 (HIGH) ; green LED is OFF
+ *** Relay is ON  = 0 (LOW)  ; green LED is ON
  */
 
 
@@ -46,8 +46,8 @@ void setup() {
 
 /* Turn the Relay OFF */
 void relayTurnOff() {
-  unsigned char relay_state = digitalRead(RELAY_PIN);
-  digitalWrite(RELAY_PIN, HIGH);
+  digitalWrite(RELAY_PIN, HIGH) /* sets: OFF = 1 (HIGH) */
+  unsigned char relay_state = digitalRead(RELAY_PIN); /* reads 1 */
   Serial.print("Relay is in state: ");
   Serial.print(relay_state);
   Serial.print(" (OFF)\n");
@@ -56,8 +56,8 @@ void relayTurnOff() {
 
 /* Turn the Relay ON */
 void relayTurnOn() {
+  digitalWrite(RELAY_PIN, LOW); /* sets: ON = 0 (LOW) */
   unsigned char relay_state = digitalRead(RELAY_PIN);
-  digitalWrite(RELAY_PIN, LOW);
   Serial.print("Relay is in state: ");
   Serial.print(relay_state);
   Serial.print(" (ON)\n");
