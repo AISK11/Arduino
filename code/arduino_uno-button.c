@@ -68,8 +68,8 @@ void checkButtonPress() {
     delay(50);
   }
 
-  /* update last state, so event is not executed multiple
-   * times during single button press */
+  /* update last state, so event is not executed
+   * multiple times during single button press */
   btn_last_state = btn_current_state;
 }
 
