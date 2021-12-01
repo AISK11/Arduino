@@ -2,7 +2,7 @@
  * Author: AISK11                               *
  * Description: code to toggle (ON/OFF) button. *
  * Date Created: 2021-11-30                     *
- * Last Updated: 2021-12-01                     *
+ * Last Updated: 2021-11-30                     *
  ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
@@ -41,7 +41,8 @@ void setup() {
 
   /* initialize the pushbutton pin as an pull-up input
    * the pull-up input pin will be HIGH when the switch 
-   * is open and LOW when the switch is closed */
+   * is open and LOW when the switch is closed
+   * (good for DIGITAL INPUT devices) */
   pinMode(BUTTON1_PIN, INPUT_PULLUP);
 }
 
