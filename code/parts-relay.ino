@@ -30,7 +30,7 @@
  */
 
 
-#define RELAY_PIN 3  /* GPIO <2;13> pin connected to Relay INPUT */
+#define PIN_RELAY 3  /* GPIO <2;13> pin connected to Relay INPUT */
 
 
 void setup() {
@@ -38,7 +38,7 @@ void setup() {
   Serial.begin(9600);
 
   /* initialize the Relay input pin as OUTPUT */
-  pinMode(RELAY_PIN, OUTPUT);
+  pinMode(PIN_RELAY, OUTPUT);
   
   /* Start relay in off state (OFF = HIGH) */
   relayTurnOff();
@@ -47,8 +47,8 @@ void setup() {
 
 /* Turn the Relay OFF */
 void relayTurnOff() {
-  digitalWrite(RELAY_PIN, HIGH); /* sets: OFF = 1 (HIGH) */
-  unsigned char relay_state = digitalRead(RELAY_PIN); /* reads 1 */
+  digitalWrite(PIN_RELAY, HIGH); /* sets: OFF = 1 (HIGH) */
+  unsigned char relay_state = digitalRead(PIN_RELAY); /* reads 1 */
   Serial.print("Relay is in state: ");
   Serial.print(relay_state);
   Serial.print(" (OFF)\n");
@@ -57,8 +57,8 @@ void relayTurnOff() {
 
 /* Turn the Relay ON */
 void relayTurnOn() {
-  digitalWrite(RELAY_PIN, LOW); /* sets: ON = 0 (LOW) */
-  unsigned char relay_state = digitalRead(RELAY_PIN);
+  digitalWrite(PIN_RELAY, LOW); /* sets: ON = 0 (LOW) */
+  unsigned char relay_state = digitalRead(PIN_RELAY);
   Serial.print("Relay is in state: ");
   Serial.print(relay_state);
   Serial.print(" (ON)\n");
