@@ -25,7 +25,7 @@
  */
 
 
-#define PIN_LED 4 /* GPIO <2;13> pin connected to LED (+) AKA Longer leg */
+#define PIN_LED 5 /* GPIO <2;13> pin connected to LED (+) AKA Longer leg */
 
 
 unsigned char led_state = LOW; /* start LED in turned off STATE */
@@ -66,6 +66,18 @@ void turnLedToggle() {
     led_state = HIGH;
   }
   digitalWrite(PIN_LED, led_state);
+}
+
+
+/* setLedBrightness,
+ * REQUIRES PWM (Arduino PIN with '~')
+ */
+void setLedBrightness(unsigned char set_brightness) {
+  /* set LED brightness from interval <0;255>
+   * 0   = OFF
+   * 255 = MAX brightness AKA digitalWrite(PIN_LED, 1);
+   */
+  analogWrite(PIN_LED, set_brightness);
 }
 
 
