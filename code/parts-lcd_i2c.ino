@@ -28,3 +28,19 @@
 
 LiquidCrystal_I2C lcd(0x27, 20, 4); /* I2C address 0x27, 20 column and 4 rows */
 
+
+
+void setup() {
+  lcd.init();      /* initialize the lcd */
+  lcd.backlight(); /* open the backlight */
+
+  lcd.setCursor(0, 0);                 /* move cursor   to (0, 0) */
+  lcd.print("Hello World!");           /* print message at (0, 0) */
+  lcd.setCursor(0, 1);                 /* move cursor   to (0, 1) */
+  lcd.print("--------------------");   /* print message at (0, 0) */
+}
+
+
+void loop() {
+  //Placeholder
+}
