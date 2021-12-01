@@ -1,6 +1,6 @@
 /************************************************
  * Author: AISK11                               *
- * Description: code to toggle (ON/OFF) button. *
+ * Description: code to toggle (ON/OFF) BUTTON. *
  * Date Created: 2021-11-30                     *
  * Last Updated: 2021-11-30                     *
  ************************************************/
