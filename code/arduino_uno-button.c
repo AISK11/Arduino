@@ -34,7 +34,7 @@
 
 unsigned char btn_last_state = HIGH; /* the previous state from the input pin, initial HIGH -> from OFF to ON 1st time */
 unsigned char btn_current_state;     /* the current reading from the input pin */
-unsigned char btn_isOn = 0; 
+unsigned char btn_isOn = 0;          /* button is Off on the start */
 
 
 void setup() {
