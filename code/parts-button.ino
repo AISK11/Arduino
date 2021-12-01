@@ -85,7 +85,7 @@ void checkButtonPress() {
 void btnIsOff() {
   Serial.print("Button is ");
   Serial.print(btn_state);
-  Serial.print(" (OFF)");
+  Serial.print(" (OFF)\n");
 }
 
 
@@ -93,7 +93,7 @@ void btnIsOff() {
 void btnIsOn() {
   Serial.print("Button is ");
   Serial.print(btn_state);
-  Serial.print(" (ON)");
+  Serial.print(" (ON)\n");
 }
 
 
