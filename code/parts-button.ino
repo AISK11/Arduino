@@ -83,7 +83,7 @@ void checkButtonPress() {
 
 /* this function executes, when button state is 1 (ON) */
 void btnIsOff() {
-  Serial.print("Button is ");
+  Serial.print("Button is in state: ");
   Serial.print(btn_state);
   Serial.print(" (OFF)\n");
 }
@@ -91,7 +91,7 @@ void btnIsOff() {
 
 /* this function executes, when button state is 0 (OFF) */
 void btnIsOn() {
-  Serial.print("Button is ");
+  Serial.print("Button is in state: ");
   Serial.print(btn_state);
   Serial.print(" (ON)\n");
 }
