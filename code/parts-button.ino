@@ -9,18 +9,18 @@
  ** Tools -> Board -> Arduino Uno
  */
 
-/* Schematic:
- ** Button:
- *** Arduino UNO GPIO D<2;13> <=> Button
- *** Arduino UNO GROUND       <=> Button
- */
-
 /* Docs:
  ** Arduino Uno:
  *** https://store.arduino.cc/products/arduino-uno-rev3/
  ** Button:
  *** https://arduinogetstarted.com/tutorials/arduino-button
  */ 
+
+/* Schematic:
+ ** Button:
+ *** Arduino UNO GPIO D<2;13> <=> Button
+ *** Arduino UNO GROUND       <=> Button
+ */
 
 /* Theory:
  ** Button:
