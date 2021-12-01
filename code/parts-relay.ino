@@ -9,19 +9,19 @@
  ** Tools -> Board -> Arduino Uno
  */
 
-/* Schematic:
- ** Relay:
- *** Arduino UNO 5V           <=> Relay VCC
- *** Arduino UNO GPIO D<2;13> <=> Relay IN
- *** Arduino UNO GROUND       <=> Relay GND
- */
-
 /* Docs:
  ** Arduino Uno:
  *** https://store.arduino.cc/products/arduino-uno-rev3/
  ** Relay:
  *** https://arduinogetstarted.com/tutorials/arduino-relay
  */ 
+
+/* Schematic:
+ ** Relay:
+ *** Arduino UNO 5V           <=> Relay VCC
+ *** Arduino UNO GPIO D<2;13> <=> Relay IN
+ *** Arduino UNO GROUND       <=> Relay GND
+ */
 
 /* Theory:
  ** Relay:
