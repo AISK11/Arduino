@@ -1,3 +1,10 @@
+/************************************************
+ * Author: AISK11                               *
+ * Description: code to print text on LCD       *
+ *              display.                        *
+ * Date Created: 2021-11-30                     *
+ * Last Updated: 2021-12-01                     *
+ ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
  ** Tools -> Board -> Arduino Uno
@@ -19,8 +26,9 @@
  *** Arduino UNO A5     <=> LCD I2C SCL
  */
 
-/* Download "LiquidCrystal I2C" library
- ** Sketch -> Include Library -> Manage Libraries -> LiquidCrystal I2C 
+/* Library:
+ ** Download "LiquidCrystal I2C" library
+ *** Sketch -> Include Library -> Manage Libraries -> LiquidCrystal I2C 
  */
 
 
