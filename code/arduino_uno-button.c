@@ -27,7 +27,7 @@
  */
 
 
-#define BUTTON_PIN 2 /* GPIO <2;13> pin connected to button */
+#define BUTTON_PIN 2 /* GPIO <2;13> pin connected to Button */
 
 
 unsigned char btn_last_state = HIGH; /* the previous state from the input pin, initial HIGH -> from OFF to ON 1st time */
