@@ -23,6 +23,13 @@ void setup() {
 }
 
 
+void loop() {
+  /* Check if specified amount of milliseconds has passed
+   * and then it will call smartDelayExecute(). */
+  smartDelayCheck(timer_without_delay);
+}
+
+
 /* smartDelayCheck()
  ** Check if timer has passed + other code can still run unlike delay().
  * millis()
@@ -46,11 +53,4 @@ void smartDelayCheck(unsigned long delay_timer) {
 void smartDelayExecute() {
   Serial.print(timer_without_delay);
   Serial.print(" milliseconds passed.\n");
-}
-
-
-void loop() {
-  /* Check if specified amount of milliseconds has passed
-   * and then it will call smartDelayExecute(). */
-  smartDelayCheck(timer_without_delay);
 }
