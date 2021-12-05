@@ -48,6 +48,12 @@ void setup() {
 }
 
 
+void loop() {
+  /* Print text to LCD Display */
+  lcdMessage();
+}
+
+
 /* Function does the following:
  * 1. Prints "Hello World" followed with "-" for whole second line.
  * 2. After 1 second, clears the screen.
@@ -72,10 +78,4 @@ void lcdMessage() {
   delay(1000);                         /* Wait 1000 milliseconds.   */
   lcd.clear();                         /* Clear the display screen. */
   delay(1000);                         /* Wait 1000 milliseconds.   */
-}
-
-
-void loop() {
-  /* Print text to LCD Display */
-  lcdMessage();
 }
