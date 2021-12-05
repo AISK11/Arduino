@@ -2,7 +2,7 @@
  * Author: AISK11                               *
  * Description: code to toggle (ON/OFF) RELAY.  *
  * Date Created: 2021-12-01                     *
- * Last Updated: 2021-12-01                     *
+ * Last Updated: 2021-12-05                     *
  ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
@@ -30,41 +30,48 @@
  */
 
 
-#define PIN_RELAY 3  /* GPIO <2;13> pin connected to Relay INPUT */
+/* GPIO <2;13> pin connected to Relay INPUT. */
+#define PIN_RELAY 3
 
 
 void setup() {
-  /* initialize serial communication at 9600 bits per second */
+  /* Initialize serial communication at 9600 bits per second. */
   Serial.begin(9600);
 
-  /* initialize the Relay input pin as OUTPUT */
+  /* Initialize the Relay input pin as OUTPUT. */
   pinMode(PIN_RELAY, OUTPUT);
   
-  /* Start relay in off state (OFF = HIGH) */
+  /* Start relay in off state (OFF = HIGH). */
   relayTurnOff();
 }
 
 
-/* Turn the Relay OFF */
+void loop() {
+  //Placeholder
+}
+
+
+/* Turn the Relay OFF. */
 void relayTurnOff() {
-  digitalWrite(PIN_RELAY, HIGH); /* sets: OFF = 1 (HIGH) */
-  unsigned char relay_state = digitalRead(PIN_RELAY); /* reads 1 */
+  /* Sets: OFF = 1 (HIGH). */
+  digitalWrite(PIN_RELAY, HIGH);
+  /* Reads 1 (OFF). */
+  unsigned char relay_state = digitalRead(PIN_RELAY);
+  
   Serial.print("Relay is in state: ");
   Serial.print(relay_state);
   Serial.print(" (OFF)\n");
 }
 
 
-/* Turn the Relay ON */
+/* Turn the Relay ON. */
 void relayTurnOn() {
-  digitalWrite(PIN_RELAY, LOW); /* sets: ON = 0 (LOW) */
+  /* Sets: ON = 0 (LOW). */
+  digitalWrite(PIN_RELAY, LOW);
+  /* Reads 0 (ON). */
   unsigned char relay_state = digitalRead(PIN_RELAY);
+  
   Serial.print("Relay is in state: ");
   Serial.print(relay_state);
   Serial.print(" (ON)\n");
-}
-
-
-void loop() {
-  //Placeholder
 }
