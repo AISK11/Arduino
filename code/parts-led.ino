@@ -1,3 +1,10 @@
+/************************************************
+ * Author: AISK11                               *
+ * Description: function to provide delay, but  *
+ *              other code can still run.       *
+ * Date Created: 2021-12-01                     *
+ * Last Updated: 2021-12-05                     *
+ ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
  ** Tools -> Board -> Arduino Uno
@@ -13,7 +20,7 @@
 /* Schematic:
  ** LED:
  *** Arduino UNO GROUND       <=> LED (-) AKA Shoreter leg
- *** Arduino UNO GPIO D<2;13> <=> Resistor 220 Ohm <=> LED (+) AKA Longer leg 
+ *** Arduino UNO GPIO D<2;13> <=> Resistor 220 Ohm <=> LED (+) AKA Longer leg
  */
 
 /* Theory:
@@ -25,58 +32,64 @@
  */
 
 
-#define PIN_LED 5 /* GPIO <2;13> pin connected to LED (+) AKA Longer leg */
+/* GPIO <2;13> pin connected to LED (+) AKA Longer leg. */
+#define PIN_LED 5
 
 
-unsigned char led_state = LOW; /* start LED in turned off STATE */
+/* Start LED in turned OFF (LOW) state. */
+unsigned char _led_state = LOW;
 
 
 void setup() {
-  /* initialize serial communication at 9600 bits per second */
+  /* Initialize serial communication at 9600 bits per second. */
   Serial.begin(9600);
 
-  /* initialize the LED (+) pin as OUTPUT */
+  /* Initialize the LED (+) pin as OUTPUT. */
   pinMode(PIN_LED, OUTPUT);
 
-  /* start LED in turned off STATE */
-  digitalWrite(PIN_LED, led_state);
+  /* Start LED in turned off STATE. */
+  digitalWrite(PIN_LED, _led_state);
 }
 
 
-/* Turns the LED On */
+/* Turns the LED ON */
 void turnLedOn() {
-  led_state = HIGH;
-  digitalWrite(PIN_LED, led_state);
+  /* Change LED status to ON (HIGH) */
+  _led_state = HIGH;
+  /* Turn ON LED */
+  digitalWrite(PIN_LED, _led_state);
 }
 
 
-/* Turns the LED Off */
+/* Turns the LED OFF. */
 void turnLedOff() {
-  led_state = LOW;
-  digitalWrite(PIN_LED, led_state);
+  /* Change LED status to OFF (HIGH) */
+  _led_state = LOW;
+  /* Turn OFF LED */
+  digitalWrite(PIN_LED, _led_state);
 }
 
 
-/* Toggle LED to opposite state */
+/* Toggle LED to opposite state. */
 void turnLedToggle() {
-  if(led_state) {
-    led_state = LOW;
+  if(_led_state) {
+    _led_state = LOW;
   }
   else {
-    led_state = HIGH;
+    _led_state = HIGH;
   }
-  digitalWrite(PIN_LED, led_state);
+
+  /* Put LED to opposite state */
+  digitalWrite(PIN_LED, _led_state);
 }
 
 
-/* setLedBrightness,
- * REQUIRES PWM (Arduino PIN with '~')
- */
+/* setLedBrightness(),
+ * REQUIRES PWM (Arduino PIN with '~'). */
 void setLedBrightness(unsigned char set_brightness) {
-  /* set LED brightness from interval <0;255>
-   * 0   = OFF
-   * 255 = MAX brightness AKA digitalWrite(PIN_LED, 1);
-   */
+  /* Set LED brightness from interval <0;255>
+   ** 0   = OFF
+   ** 255 = MAX brightness AKA digitalWrite(PIN_LED, 1) */
   analogWrite(PIN_LED, set_brightness);
 }
 
