@@ -26,17 +26,17 @@ void setup() {
 void loop() {
   /* Check if specified amount of milliseconds has passed
    * and then it will call smartDelayExecute(). */
-  smartDelayCheck(timer_without_delay);
+  smartDelay(timer_without_delay);
 }
 
 
-/* smartDelayCheck()
+/* smartDelay()
  ** Check if timer has passed + other code can still run unlike delay().
  * millis()
  ** Returns the number of milliseconds passed since
  ** the Arduino board began running the current program.
  ** This number will overflow (go back to zero), after ~50 days. */
-void smartDelayCheck(unsigned long delay_timer) {
+void smartDelay(unsigned long delay_timer) {
   /* if millis() - _last_millis_count > delay_timer
    * e.g. 74361 - 73360 > 1000 */
   if((millis() - _last_millis_count) > delay_timer) {
