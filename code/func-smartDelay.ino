@@ -28,7 +28,7 @@ void setup() {
  ** the Arduino board began running the current program.
  ** This number will overflow (go back to zero), after ~50 days. */
 void smartDelayCheck(unsigned long delay_timer) {
-  /* if millis() - last_millis_count > timer_without_delay;
+  /* if millis() - _last_millis_count > delay_timer;
    * e.g. 74361 - 73360 > 1000 */
   if((millis() - _last_millis_count) > delay_timer) {
     /* execute function when timer has passed */
