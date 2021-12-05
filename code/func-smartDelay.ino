@@ -13,7 +13,7 @@
 
 /* When program starts, 0 milliseconds passed already (cause it starts now). */
 unsigned long _last_millis_count = 0;
-/* Timer for smartDelayCheck() in milliseconds. */
+/* Timer for smartDelay() in milliseconds. */
 unsigned long timer_without_delay = 1000;
 
 
@@ -49,7 +49,7 @@ void smartDelay(unsigned long delay_timer) {
 }
 
 
-/* Execute code when smartDelayCheck() timer has passed. */
+/* Execute code when smartDelay() timer has passed. */
 void smartDelayExecute() {
   Serial.print(timer_without_delay);
   Serial.print(" milliseconds passed.\n");
