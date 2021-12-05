@@ -52,6 +52,12 @@ void setup() {
 }
 
 
+void loop() {
+  //turnLedToggle();
+  //delay(1500);
+}
+
+
 /* Turns the LED ON */
 void turnLedOn() {
   /* Change LED status to ON (HIGH) */
@@ -91,10 +97,4 @@ void setLedBrightness(unsigned char set_brightness) {
    ** 0   = OFF
    ** 255 = MAX brightness AKA digitalWrite(PIN_LED, 1) */
   analogWrite(PIN_LED, set_brightness);
-}
-
-
-void loop() {
-  //turnLedToggle();
-  //delay(1500);
 }
