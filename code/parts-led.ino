@@ -58,20 +58,20 @@ void loop() {
 }
 
 
-/* Turns the LED ON */
+/* Turns the LED ON. */
 void turnLedOn() {
-  /* Change LED status to ON (HIGH) */
+  /* Change LED status to ON (HIGH). */
   _led_state = HIGH;
-  /* Turn ON LED */
+  /* Turn ON LED. */
   digitalWrite(PIN_LED, _led_state);
 }
 
 
 /* Turns the LED OFF. */
 void turnLedOff() {
-  /* Change LED status to OFF (HIGH) */
+  /* Change LED status to OFF (HIGH). */
   _led_state = LOW;
-  /* Turn OFF LED */
+  /* Turn OFF LED. */
   digitalWrite(PIN_LED, _led_state);
 }
 
@@ -85,7 +85,7 @@ void turnLedToggle() {
     _led_state = HIGH;
   }
 
-  /* Put LED to opposite state */
+  /* Put LED to opposite state. */
   digitalWrite(PIN_LED, _led_state);
 }
 
