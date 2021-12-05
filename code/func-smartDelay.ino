@@ -13,7 +13,7 @@
 
 /* When program starts, 0 milliseconds passed already (cause it starts now). */
 unsigned long _last_millis_count = 0;
-/* Timer for smartDelayCheck() in milliseconds. */ 
+/* Timer for smartDelayCheck() in milliseconds. */
 unsigned long timer_without_delay = 1000;
 
 
