@@ -134,6 +134,9 @@ void checkButtonPressDown() {
 }
 
 
+/* This function executes, when User presses and keeps executing 
+ * while User holds button.
+ * Something like Unity C# OnKey(). */
 void checkButtonPress()
 {
   /* Read the current state of the switch/button. */
