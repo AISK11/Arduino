@@ -31,6 +31,7 @@
 
 #define PIN_BUTTON 2 /* GPIO <2;13> pin connected to Button */
 
+
 /* When button is FREE, then INPUT PIN reads HIGH (1),
  * when button is PRESSED, then INPUT PIN reads LOW (0),
  * IF THIS IS REVERSED FOR YOUR SPECIFIC BUTTON, THEN SWAP THESE VALUES */
@@ -39,7 +40,7 @@ static unsigned char PRESSED = LOW;
 
 /* Previous state from the INPUT PIN, 
  * initial HIGH -> button is Free (not pressed) on start. */
-unsigned char _btn_press_last_state = HIGH;
+unsigned char _btn_press_last_state = FREE;
 /* Current reading from the INPUT PIN. */
 unsigned char _btn_press_current_state;
 /* Logical button states:
@@ -62,7 +63,8 @@ void setup() {
 
 void loop() {
   //checkButtonPressUp();
-  checkButtonPressDown();
+  //checkButtonPressDown();
+  checkButtonPress();
 }
 
 
@@ -136,6 +138,20 @@ void checkButtonPressDown() {
 }
 
 
+void checkButtonPress()
+{
+  /* Read the current state of the switch/button. */
+  _btn_press_current_state = digitalRead(PIN_BUTTON);
+
+  /* If current button state is PRESSED (LOW = 0). */
+  if(_btn_press_current_state == PRESSED)
+  {
+    /* Execute code for button PRESSED state. */
+    btnIsPressed();
+  }
+}
+
+
 /* This function executes, when button state is 0 (OFF). */
 void btnIsOff() {
   Serial.print("Button is in state: ");
@@ -149,4 +165,12 @@ void btnIsOn() {
   Serial.print("Button is in state: ");
   Serial.print(_btn_state);
   Serial.print(" (ON)\n");
+}
+
+
+/* This function executes, when button is PRESSED (INPUT PIN reads LOW = 0). */
+void btnIsPressed() {
+  Serial.print("Button is currently pressed and is in logical state: ");
+  Serial.print(PRESSED);
+  Serial.print("!\n");
 }
