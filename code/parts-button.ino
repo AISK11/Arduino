@@ -31,6 +31,11 @@
 
 #define PIN_BUTTON 2 /* GPIO <2;13> pin connected to Button */
 
+/* When button is FREE, then INPUT PIN reads HIGH (1),
+ * when button is PRESSED, then INPUT PIN reads LOW (0),
+ * IF THIS IS REVERSED FOR YOUR SPECIFIC BUTTON, THEN SWAP THESE VALUES */
+static unsigned char FREE = HIGH;
+static unsigned char PRESSED = LOW;
 
 /* Previous state from the INPUT PIN, 
  * initial HIGH -> button is Free (not pressed) on start. */
@@ -68,8 +73,8 @@ void checkButtonPressUp() {
   /* Read the current state of the switch/button. */
   _btn_press_current_state = digitalRead(PIN_BUTTON);
   
-  /* If previous state was LOW (0) = pressed, and current is HIGH (1) = free. */
-  if(_btn_press_last_state == LOW && _btn_press_current_state == HIGH) {
+  /* If previous state was PRESSED (LOW = 0), and current is FREE (HIGH = 1). */
+  if(_btn_press_last_state == PRESSED && _btn_press_current_state == FREE) {
     /* Change Button state from 1 to 0 (ON -> OFF). */
     if (_btn_state) {
       /* If previously state was ON, now is OFF. */
@@ -103,8 +108,8 @@ void checkButtonPressDown() {
   /* Read the current state of the switch/button. */
   _btn_press_current_state = digitalRead(PIN_BUTTON);
   
-  /* If previous state was HIGH (1) = free, and current is LOW (0) = pressed. */
-  if(_btn_press_last_state == HIGH && _btn_press_current_state == LOW) {
+  /* If previous state was FREE (HIGH = 1), and current is PRESSED (LOW = 0). */
+  if(_btn_press_last_state == FREE && _btn_press_current_state == PRESSED) {
     /* Change Button state from 1 to 0 (ON -> OFF). */
     if (_btn_state) {
       /* If previously state was ON, now is OFF. */
