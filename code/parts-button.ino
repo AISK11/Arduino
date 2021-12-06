@@ -64,7 +64,7 @@ void setup() {
 void loop() {
   //checkButtonPressUp();
   //checkButtonPressDown();
-  checkButtonPress();
+  //checkButtonPress();
 }
 
 
@@ -93,8 +93,6 @@ void checkButtonPressUp() {
       /* Execute code for button ON state. */
       btnIsOn();
     }
-    /* Added delay, to prevent mutliple press detection in single press. */
-    delay(50);
   }
 
   /* Update last state, so event is not executed
@@ -128,8 +126,6 @@ void checkButtonPressDown() {
       /* Execute code for button ON state. */
       btnIsOn();
     }
-    /* Added delay, to prevent mutliple press detection in single press. */
-    delay(50);
   }
 
   /* Update last state, so event is not executed
