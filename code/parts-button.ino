@@ -2,7 +2,7 @@
  * Author: AISK11                               *
  * Description: code to toggle (ON/OFF) BUTTON. *
  * Date Created: 2021-11-30                     *
- * Last Updated: 2021-12-06                     *
+ * Last Updated: 2021-12-07                     *
  ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
@@ -41,8 +41,8 @@ static unsigned char PRESSED = LOW;
 /* Previous state from the INPUT PIN, 
  * initial HIGH -> button is Free (not pressed) on start. */
 unsigned char _btn_press_last_state = FREE;
-/* Current reading from the INPUT PIN. */
-unsigned char _btn_press_current_state;
+/* Current reading from the INPUT PIN, (not pressed) on start. */
+unsigned char _btn_press_current_state = FREE;
 /* Logical button states:
  ** 0 = OFF (default when initialized)
  ** 1 = ON */
