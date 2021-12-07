@@ -19,7 +19,6 @@
 
 /* Docs:
  ** Arduino ESP32:
- *** https://randomnerdtutorials.com/esp32-pinout-reference-gpios/
  *** https://www.mischianti.org/2020/05/30/esp32-pinout-specs-and-arduino-ide-configuration-part-1/
  ** Button:
  *** https://arduinogetstarted.com/tutorials/arduino-button
