@@ -61,9 +61,9 @@ void loop() {
  ** Program Functions  ** 
  ************************/
 /* Returns value <0-1023> equal to potentiometer position. */
-unsigned short int getPotentiometerOutput(const unsigned char potentiometer_pin) {
+unsigned short int getPotentiometerOutput(const unsigned char pin_potentiometer) {
   /* Read value from potentiometer, range: 0-1023. */
-  unsigned short int potentiometer_analog = analogRead(potentiometer_pin);
+  unsigned short int potentiometer_analog = analogRead(pin_potentiometer);
 
   /* Returns value <0-1023> equal to potentiometer position. */
   return potentiometer_analog;
@@ -71,9 +71,9 @@ unsigned short int getPotentiometerOutput(const unsigned char potentiometer_pin)
 
 
 /* Returns value <remap_min-remap_max> equal to potentiometer position. */
-unsigned short int getPotentiometerOutputRemapped(const unsigned char potentiometer_pin, unsigned short int remap_min, unsigned short int remap_max) {
+unsigned short int getPotentiometerOutputRemapped(const unsigned char pin_potentiometer, unsigned short int remap_min, unsigned short int remap_max) {
   /* Read value from potentiometer, range: 0-1023. */
-  unsigned short int potentiometer_analog = analogRead(potentiometer_pin);
+  unsigned short int potentiometer_analog = analogRead(pin_potentiometer);
 
   /* Mathematically remap potentiometer from range 0-1023 to 0,100. */
   unsigned short int potentiometer_remapped = map(potentiometer_analog, 0, 1023, remap_min, remap_max);
