@@ -3,7 +3,7 @@
  * Description: function to provide delay, but  *
  *              other code can still run.       *
  * Date Created: 2021-12-01                     *
- * Last Updated: 2021-12-05                     *
+ * Last Updated: 2021-12-08                     *
  ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
@@ -32,14 +32,23 @@
  */
 
 
+/************************
+ **     GPIO Pins      ** 
+ ************************/
 /* GPIO <2;13> pin connected to LED (+) AKA Longer leg. */
-#define PIN_LED 5
+static const unsigned char PIN_LED = 5;
 
 
+/************************
+ **  Public Variables  ** 
+ ************************/
 /* Start LED in turned OFF (LOW) state. */
 unsigned char _led_state = LOW;
 
 
+/************************
+ ** Arduino Functions  ** 
+ ************************/
 void setup() {
   /* Initialize serial communication at 9600 bits per second. */
   Serial.begin(9600);
@@ -53,31 +62,36 @@ void setup() {
 
 
 void loop() {
-  //turnLedToggle();
-  //delay(1500);
+  //turnLedOn(PIN_LED);
+  //turnLedOff(PIN_LED);
+  //turnLedToggle(PIN_LED);
+  //setLedBrightness(PIN_LED, 128);
 }
 
 
+/************************
+ ** Program Functions  ** 
+ ************************/
 /* Turns the LED ON. */
-void turnLedOn() {
+void turnLedOn(const unsigned char led_pin) {
   /* Change LED status to ON (HIGH). */
   _led_state = HIGH;
   /* Turn ON LED. */
-  digitalWrite(PIN_LED, _led_state);
+  digitalWrite(led_pin, _led_state);
 }
 
 
 /* Turns the LED OFF. */
-void turnLedOff() {
+void turnLedOff(const unsigned char led_pin) {
   /* Change LED status to OFF (HIGH). */
   _led_state = LOW;
   /* Turn OFF LED. */
-  digitalWrite(PIN_LED, _led_state);
+  digitalWrite(led_pin, _led_state);
 }
 
 
 /* Toggle LED to opposite state. */
-void turnLedToggle() {
+void turnLedToggle(const unsigned char led_pin) {
   if(_led_state) {
     _led_state = LOW;
   }
@@ -86,15 +100,15 @@ void turnLedToggle() {
   }
 
   /* Put LED to opposite state. */
-  digitalWrite(PIN_LED, _led_state);
+  digitalWrite(led_pin, _led_state);
 }
 
 
 /* setLedBrightness(),
  * REQUIRES PWM (Arduino PIN with '~'). */
-void setLedBrightness(unsigned char set_brightness) {
+void setLedBrightness(const unsigned char led_pin, unsigned char set_brightness) {
   /* Set LED brightness from interval <0;255>
    ** 0   = OFF
    ** 255 = MAX brightness AKA digitalWrite(PIN_LED, 1) */
-  analogWrite(PIN_LED, set_brightness);
+  analogWrite(led_pin, set_brightness);
 }
