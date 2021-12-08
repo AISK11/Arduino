@@ -2,7 +2,7 @@
  * Author: AISK11                               *
  * Description: code to toggle (ON/OFF) BUTTON. *
  * Date Created: 2021-11-30                     *
- * Last Updated: 2021-12-07                     *
+ * Last Updated: 2021-12-08                     *
  ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
@@ -29,15 +29,26 @@
  */
 
 
-#define PIN_BUTTON 2 /* GPIO <2;13> pin connected to Button */
+/************************
+ **     GPIO Pins      ** 
+ ************************/
+/* GPIO <2;13> pin connected to Button */
+static const unsigned char PIN_BUTTON = 2;
 
 
+/************************
+ ** Constant Variables ** 
+ ************************/
 /* When button is FREE, then INPUT PIN reads HIGH (1),
  * when button is PRESSED, then INPUT PIN reads LOW (0),
  * IF THIS IS REVERSED FOR YOUR SPECIFIC BUTTON, THEN SWAP THESE VALUES */
-static unsigned char FREE = HIGH;
-static unsigned char PRESSED = LOW;
+static const unsigned char FREE = HIGH;
+static const unsigned char PRESSED = LOW;
 
+
+/************************
+ ** Public  Variables  ** 
+ ************************/
 /* Previous state from the INPUT PIN, 
  * initial HIGH -> button is Free (not pressed) on start. */
 unsigned char _btn_press_last_state = FREE;
@@ -49,6 +60,9 @@ unsigned char _btn_press_current_state = FREE;
 unsigned char _btn_state = 0;
 
 
+/************************
+ ** Arduino Functions  ** 
+ ************************/
 void setup() {
   /* Initialize serial communication at 9600 bits per second. */
   Serial.begin(9600);
@@ -62,18 +76,21 @@ void setup() {
 
 
 void loop() {
-  //checkButtonPressUp();
-  //checkButtonPressDown();
-  //checkButtonPress();
+  //checkButtonPressUp(PIN_BUTTON);
+  //checkButtonPressDown(PIN_BUTTON);
+  //checkButtonPress(PIN_BUTTON);
 }
 
 
+/************************
+ ** Program Functions  ** 
+ ************************/
 /* This function executes, when User presses
  * button (but code is executed on release of the button).
  * Something like Unity C# OnKeyUP(). */
-void checkButtonPressUp() {
+void checkButtonPressUp(static const unsigned char btn_pin) {
   /* Read the current state of the switch/button. */
-  _btn_press_current_state = digitalRead(PIN_BUTTON);
+  _btn_press_current_state = digitalRead(btn_pin);
   
   /* If previous state was PRESSED (LOW = 0), and current is FREE (HIGH = 1). */
   if(_btn_press_last_state == PRESSED && _btn_press_current_state == FREE) {
@@ -104,9 +121,9 @@ void checkButtonPressUp() {
 /* This function executes, when User presses
  * button (but code is executed on exact moment of a button push).
  * Something like Unity C# OnKeyDown(). */
-void checkButtonPressDown() {
+void checkButtonPressDown(static const unsigned char btn_pin) {
   /* Read the current state of the switch/button. */
-  _btn_press_current_state = digitalRead(PIN_BUTTON);
+  _btn_press_current_state = digitalRead(btn_pin);
   
   /* If previous state was FREE (HIGH = 1), and current is PRESSED (LOW = 0). */
   if(_btn_press_last_state == FREE && _btn_press_current_state == PRESSED) {
@@ -137,10 +154,10 @@ void checkButtonPressDown() {
 /* This function executes, when User presses and keeps executing 
  * while User holds button.
  * Something like Unity C# OnKey(). */
-void checkButtonPress()
+void checkButtonPress(static const unsigned char btn_pin)
 {
   /* Read the current state of the switch/button. */
-  _btn_press_current_state = digitalRead(PIN_BUTTON);
+  _btn_press_current_state = digitalRead(btn_pin);
 
   /* If current button state is PRESSED (LOW = 0). */
   if(_btn_press_current_state == PRESSED)
