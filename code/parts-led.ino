@@ -73,11 +73,11 @@ void loop() {
  ** Program Functions  ** 
  ************************/
 /* Turns the LED ON. */
-void turnLedOn(const unsigned char led_pin) {
+void turnLedOn(const unsigned char pin_led) {
   /* Change LED status to ON (HIGH). */
   _led_state = HIGH;
   /* Turn ON LED. */
-  digitalWrite(led_pin, _led_state);
+  digitalWrite(pin_led, _led_state);
 }
 
 
@@ -91,7 +91,7 @@ void turnLedOff(const unsigned char led_pin) {
 
 
 /* Toggle LED to opposite state. */
-void turnLedToggle(const unsigned char led_pin) {
+void turnLedToggle(const unsigned char pin_led) {
   if(_led_state) {
     _led_state = LOW;
   }
@@ -100,15 +100,15 @@ void turnLedToggle(const unsigned char led_pin) {
   }
 
   /* Put LED to opposite state. */
-  digitalWrite(led_pin, _led_state);
+  digitalWrite(pin_led, _led_state);
 }
 
 
 /* setLedBrightness(),
  * REQUIRES PWM (Arduino PIN with '~'). */
-void setLedBrightness(const unsigned char led_pin, unsigned char set_brightness) {
+void setLedBrightness(const unsigned char pin_led, unsigned char set_brightness) {
   /* Set LED brightness from interval <0;255>
    ** 0   = OFF
    ** 255 = MAX brightness AKA digitalWrite(PIN_LED, 1) */
-  analogWrite(led_pin, set_brightness);
+  analogWrite(pin_led, set_brightness);
 }
