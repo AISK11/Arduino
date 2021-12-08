@@ -3,7 +3,7 @@
  * Description: code to get temperature value   *
  *              from LM35 temperature sensor.   *
  * Date Created: 2021-12-01                     *
- * Last Updated: 2021-12-05                     *
+ * Last Updated: 2021-12-08                     *
  ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
@@ -31,24 +31,50 @@
  */
 
 
+/************************
+ **     GPIO Pins      ** 
+ ************************/
 /* GPIO <A0;A5> pin connected to LM35 OUTPUT. */
-#define PIN_LM35       A0
+static const unsigned char PIN_LM35 = A0;
+
+
+/************************
+ ** Constant Variables ** 
+ ************************/
 /* 5000 because 5V. */
 #define ADC_VREF_mV    5000.0
 /* 5000 / 1024 = 4.88 mV and Temperature Resolution is 0.488 °C. */
 #define ADC_RESOLUTION 1024.0
 
 
+/************************
+ ** Arduino Functions  ** 
+ ************************/
 void setup() {
   /* Initialize serial communication at 9600 bits per second. */
   Serial.begin(9600);
 }
 
 
+void loop() {
+  Serial.print("Temperature: ");
+  Serial.print(lm35_celsius(PIN_LM35));
+  Serial.print("°C");
+  /* Separator between Celsius and Fahrenheit. */
+  Serial.print("  ~  "); 
+  Serial.print(lm35_fahrenheit(PIN_LM35));
+  Serial.println("°F");
+  delay(1000);
+}
+
+
+/************************
+ ** Program Functions  ** 
+ ************************/
 /* Return Celsius degrees. */
-float lm35_celsius() {
+float lm35_celsius(const unsigned char pin_lm35) {
   /* Get the ADC value from the temperature sensor. */
-  int adc_value = analogRead(PIN_LM35);
+  int adc_value = analogRead(pin_lm35);
   
   /* Convert the ADC value to voltage in millivolt. */
   float milli_volt = adc_value * (ADC_VREF_mV / ADC_RESOLUTION);
@@ -61,9 +87,9 @@ float lm35_celsius() {
 
 
 /* Return Fahrenheit degrees. */
-float lm35_fahrenheit() {
+float lm35_fahrenheit(const unsigned char pin_lm35) {
   /* Get the ADC value from the temperature sensor. */
-  int adc_value = analogRead(PIN_LM35);
+  int adc_value = analogRead(pin_lm35);
   
   /* Convert the ADC value to voltage in millivolt. */
   float milli_volt = adc_value * (ADC_VREF_mV / ADC_RESOLUTION);
@@ -75,16 +101,4 @@ float lm35_fahrenheit() {
   float temp_fahrenheit = temp_celsius * 9 / 5 + 32;
 
   return temp_fahrenheit;
-}
-
-
-void loop() {
-  Serial.print("Temperature: ");
-  Serial.print(lm35_celsius());
-  Serial.print("°C");
-  /* Separator between Celsius and Fahrenheit. */
-  Serial.print("  ~  "); 
-  Serial.print(lm35_fahrenheit());
-  Serial.println("°F");
-  delay(1000);
 }
