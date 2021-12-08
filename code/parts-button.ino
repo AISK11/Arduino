@@ -47,7 +47,7 @@ static const unsigned char PRESSED = LOW;
 
 
 /************************
- ** Public  Variables  ** 
+ **  Public Variables  ** 
  ************************/
 /* Previous state from the INPUT PIN, 
  * initial HIGH -> button is Free (not pressed) on start. */
