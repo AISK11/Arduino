@@ -88,9 +88,9 @@ void loop() {
 /* This function executes, when User presses
  * button (but code is executed on release of the button).
  * Something like Unity C# OnKeyUP(). */
-void checkButtonPressUp(const unsigned char btn_pin) {
+void checkButtonPressUp(const unsigned char pin_button) {
   /* Read the current state of the switch/button. */
-  _btn_press_current_state = digitalRead(btn_pin);
+  _btn_press_current_state = digitalRead(pin_button);
   
   /* If previous state was PRESSED (LOW = 0), and current is FREE (HIGH = 1). */
   if(_btn_press_last_state == PRESSED && _btn_press_current_state == FREE) {
@@ -121,9 +121,9 @@ void checkButtonPressUp(const unsigned char btn_pin) {
 /* This function executes, when User presses
  * button (but code is executed on exact moment of a button push).
  * Something like Unity C# OnKeyDown(). */
-void checkButtonPressDown(const unsigned char btn_pin) {
+void checkButtonPressDown(const unsigned char pin_button) {
   /* Read the current state of the switch/button. */
-  _btn_press_current_state = digitalRead(btn_pin);
+  _btn_press_current_state = digitalRead(pin_button);
   
   /* If previous state was FREE (HIGH = 1), and current is PRESSED (LOW = 0). */
   if(_btn_press_last_state == FREE && _btn_press_current_state == PRESSED) {
@@ -154,10 +154,10 @@ void checkButtonPressDown(const unsigned char btn_pin) {
 /* This function executes, when User presses and keeps executing 
  * while User holds button.
  * Something like Unity C# OnKey(). */
-void checkButtonPress(const unsigned char btn_pin)
+void checkButtonPress(const unsigned char pin_button)
 {
   /* Read the current state of the switch/button. */
-  _btn_press_current_state = digitalRead(btn_pin);
+  _btn_press_current_state = digitalRead(pin_button);
 
   /* If current button state is PRESSED (LOW = 0). */
   if(_btn_press_current_state == PRESSED)
