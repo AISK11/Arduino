@@ -3,7 +3,7 @@
  * Description: code to print text on LCD       *
  *              display.                        *
  * Date Created: 2021-11-30                     *
- * Last Updated: 2021-12-05                     *
+ * Last Updated: 2021-12-08                     *
  ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
@@ -28,39 +28,57 @@
 
 /* Library:
  ** Download "LiquidCrystal I2C" lib:
- *** Sketch -> Include Library -> Manage Libraries -> LiquidCrystal I2C
+ *** Sketch -> Include Library -> Manage Libraries -> "LiquidCrystal I2C"
  */
 
 
+/************************
+ **     Libraries      ** 
+ ************************/
 /* Import LCD I2C library. */
 #include <LiquidCrystal_I2C.h> 
 
 
+/************************
+ ** Display Properties ** 
+ ************************/
 /* I2C address 0x27, 20 column and 4 rows. */
 LiquidCrystal_I2C lcd(0x27, 20, 4); 
 
 
+/************************
+ ** Arduino Functions  ** 
+ ************************/
 void setup() {
-  lcd.init();      /* Initialize the lcd. */
-  lcd.backlight(); /* Open the backlight. */
+  /* Initialize the lcd. */
+  lcd.init();
+  /* Open the backlight. */
+  lcd.backlight();
 
-  lcd.noCursor();  /* Hide LCD cursor. */
+  /* Hide LCD cursor. */
+  lcd.noCursor();
 }
 
 
 void loop() {
   /* Print text to LCD Display */
-  lcdMessage();
+  //lcdTestMessage();
+
+  /* Print text at specific LCD Display location */
+  //lcdMessage(0, 0, "Hi!");
 }
 
 
+/************************
+ ** Program Functions  ** 
+ ************************/
 /* Function does the following:
  * 1. Prints "Hello World" followed with "-" for whole second line.
  * 2. After 1 second, clears the screen.
  * 3. After 1 second, prints "Bye World" followed with "-" for whole second line.
  * 4. After 1 second, clears the screen and repeats step 1.
  */
-void lcdMessage() {
+void lcdTestMessage() {
   lcd.setCursor(0, 0);                 /* Move cursor   to (0, 0) */
   lcd.print("Hello World!");           /* Print message at (0, 0) */
   lcd.setCursor(0, 1);                 /* Move cursor   to (0, 1) */
@@ -78,4 +96,14 @@ void lcdMessage() {
   delay(1000);                         /* Wait 1000 milliseconds.   */
   lcd.clear();                         /* Clear the display screen. */
   delay(1000);                         /* Wait 1000 milliseconds.   */
+}
+
+
+/* Function prints text on LCD Display on set row (x) and column (y). */
+void lcdMessage(unsigned short int x, unsigned short int y, char message[]) {
+  /* Move cursor to (x, y). */
+  lcd.setCursor(x, y);
+
+  /* Print message (string). */
+  lcd.print(message);
 }
