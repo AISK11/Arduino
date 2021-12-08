@@ -82,11 +82,11 @@ void turnLedOn(const unsigned char pin_led) {
 
 
 /* Turns the LED OFF. */
-void turnLedOff(const unsigned char led_pin) {
+void turnLedOff(const unsigned char pin_led) {
   /* Change LED status to OFF (HIGH). */
   _led_state = LOW;
   /* Turn OFF LED. */
-  digitalWrite(led_pin, _led_state);
+  digitalWrite(pin_led, _led_state);
 }
 
 
