@@ -2,7 +2,7 @@
  * Author: AISK11                               *
  * Description: code to toggle (ON/OFF) BUTTON. *
  * Date Created: 2021-11-30                     *
- * Last Updated: 2021-12-08                     *
+ * Last Updated: 2021-12-13                     *
  ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
@@ -78,7 +78,7 @@ void setup() {
 void loop() {
   //checkButtonPressUp(PIN_BUTTON);
   //checkButtonPressDown(PIN_BUTTON);
-  //checkButtonPress(PIN_BUTTON);
+  //checkButtonHold(PIN_BUTTON);
 }
 
 
@@ -154,7 +154,7 @@ void checkButtonPressDown(const unsigned char pin_button) {
 /* This function executes, when User presses and keeps executing 
  * while User holds button.
  * Something like Unity C# OnKey(). */
-void checkButtonPress(const unsigned char pin_button)
+void checkButtonHold(const unsigned char pin_button)
 {
   /* Read the current state of the switch/button. */
   _btn_press_current_state = digitalRead(pin_button);
