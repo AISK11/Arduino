@@ -3,7 +3,7 @@
  * Description: function to provide delay, but  *
  *              other code can still run.       *
  * Date Created: 2021-12-01                     *
- * Last Updated: 2021-12-08                     *
+ * Last Updated: 2021-12-13                     *
  ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
@@ -19,7 +19,7 @@
 
 /* Schematic:
  ** LED:
- *** Arduino UNO GROUND       <=> LED (-) AKA Shoreter leg
+ *** Arduino UNO GROUND       <=> LED (-) AKA Shorter leg
  *** Arduino UNO GPIO D<2;13> <=> Resistor 220 Ohm <=> LED (+) AKA Longer leg
  */
 
