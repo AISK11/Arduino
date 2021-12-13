@@ -165,6 +165,10 @@ void checkButtonHold(const unsigned char pin_button)
     /* Execute code for button PRESSED state. */
     btnIsPressed();
   }
+  else {
+     /* Execute code for button FREE state. */
+     btnIsFree();
+  }
 }
 
 
@@ -188,5 +192,13 @@ void btnIsOn() {
 void btnIsPressed() {
   Serial.print("Button is currently pressed and is in logical state: ");
   Serial.print(PRESSED);
+  Serial.print("!\n");
+}
+
+
+/* This function executes, when button is FREE (INPUT PIN reads HIGH = 1). */
+void btnIsFree() {
+  Serial.print("Button is currently not pressed and is in logical state: ");
+  Serial.print(FREE);
   Serial.print("!\n");
 }
