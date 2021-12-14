@@ -3,7 +3,7 @@
  * Description: code to get temperature value   *
  *              from LM35 temperature sensor.   *
  * Date Created: 2021-12-01                     *
- * Last Updated: 2021-12-08                     *
+ * Last Updated: 2021-12-14                     *
  ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
@@ -19,15 +19,19 @@
  
 /* Schematic:
  ** LM35:
- *** Arduino UNO 5V     <=> LM35 VCC
- *** Arduino UNO A<0;5> <=> LM35 OUT
- *** Arduino UNO GROUND <=> LM35 GND
+ *** Arduino UNO 5V     <=> LM35 VCC +-,
+ *** Arduino UNO A<0;5> <=> LM35 OUT -  )
+ *** Arduino UNO GROUND <=> LM35 GND +-'
  */
 
 /* Theory:
  ** Temperature range:      0 - 500 °C
  ** Reading Resolution:     5000mv / 1024 = 4.88 mV
  ** Temperature Resolution: 0.488 °C
+ */
+
+/* Note:
+ ** If sensor is outputting too high values, connect to separate ground.
  */
 
 
@@ -88,17 +92,8 @@ float lm35_celsius(const unsigned char pin_lm35) {
 
 /* Return Fahrenheit degrees. */
 float lm35_fahrenheit(const unsigned char pin_lm35) {
-  /* Get the ADC value from the temperature sensor. */
-  int adc_value = analogRead(pin_lm35);
-  
-  /* Convert the ADC value to voltage in millivolt. */
-  float milli_volt = adc_value * (ADC_VREF_mV / ADC_RESOLUTION);
-  
-  /* Convert the voltage to the temperature in Celsius. */
-  float temp_celsius = milli_volt / 10;
-  
   /* Convert the Celsius to Fahrenheit. */
-  float temp_fahrenheit = temp_celsius * 9 / 5 + 32;
+  float temp_fahrenheit = lm35_celsius(pin_lm35) * 9 / 5 + 32;
 
   return temp_fahrenheit;
 }
