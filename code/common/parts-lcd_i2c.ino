@@ -3,7 +3,7 @@
  * Description: code to print text on LCD       *
  *              display.                        *
  * Date Created: 2021-11-30                     *
- * Last Updated: 2021-12-08                     *
+ * Last Updated: 2021-12-14                     *
  ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
