@@ -28,6 +28,8 @@
 /* Library:
  ** Download "DHT sensor library" lib:
  *** Sketch -> Include Library -> Manage Libraries -> "DHT sensor library"
+ ** Download "Adafruit Unified Sensor" lib:
+ *** Sketch -> Include Library -> Manage Libraries -> "Adafruit Unified Sensor"
  */
 
 
