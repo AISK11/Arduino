@@ -2,8 +2,10 @@
 
 Supported parts:
 - Digital Button
+- DHT11 Temperature sensor
 - External LCD I2C Display
-- LED 
+- HCSR04 Distance Sensor
+- LED
 - LM35 Temperature sensor
 - Potentiometer
 - Relay
