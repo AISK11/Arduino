@@ -21,7 +21,7 @@
  ** LM35:
  *** Arduino UNO 5V     <=> LM35 VCC -+-,
  *** Arduino UNO A<0;5> <=> LM35 OUT -|  )
- *** Arduino UNO GROUND <=> LM35 GND +--'
+ *** Arduino UNO GROUND <=> LM35 GND -+-'
  */
 
 /* Theory:
