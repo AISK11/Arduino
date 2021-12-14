@@ -43,6 +43,7 @@
 /************************
  **     GPIO Pins      ** 
  ************************/
+/* GPIO <2;13> pin connected to DHT. */
 static const unsigned char PIN_DHT = 9;
 
 
