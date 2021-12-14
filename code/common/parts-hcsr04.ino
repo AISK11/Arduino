@@ -1,11 +1,9 @@
-/* Work In Progress... */
-
 /************************************************
  * Author: AISK11                               *
  * Description: code to get distance value      *
  *              from HCSR04 sensor.             *
- * Date Created: YYYY-MM-dd                     *
- * Last Updated: YYYY-MM-dd                     *
+ * Date Created: 2021-12-14                     *
+ * Last Updated: 2021-12-14                     *
  ************************************************/
 /* Arduino IDE Set up:
  ** Tools -> Port -> /dev/ttyACM0
@@ -52,7 +50,8 @@ static const unsigned char PIN_HCSR04_ECHO = 11;
 /************************
  **  Public Variables  ** 
  ************************/
-double _hcsr_distance;
+/* Sensor distance pointer. */ 
+double* _hcsr_distances;
 
 
 /************************
@@ -68,12 +67,40 @@ void setup() {
 
 
 void loop() {
-  //Serial.println(HCSR04.measureDistanceMm(_hcsr_distance));
-  //HCSR04.measureDistanceCm(distances);
-  //HCSR04.measureDistanceIn(distances);
+  //Serial.println(hcsr_distance_cm(_hcsr_distances));
+  //Serial.println(hcsr_distance_mm(_hcsr_distances));
+  //Serial.println(hcsr_distance_in(_hcsr_distances));
 }
 
 
 /************************
  ** Program Functions  ** 
  ************************/
+/* Function returns distance in centimeters. */
+double hcsr_distance_cm(double* distance) {
+  /* Get distance from sensor in centimeters. */
+  distance = HCSR04.measureDistanceCm();
+
+  /* Return first (and only) value from pointer "_hcsr_distances". */
+  return distance[0];
+}
+
+
+/* Function returns distance in milimeters. */
+double hcsr_distance_mm(double* distance) {
+  /* Get distance from sensor in centimeters * 1000 = milimeters. */
+  double distance_mm = hcsr_distance_cm(distance) * 1000;
+ 
+  /* Return distance in milimeters. */
+  return distance_mm;
+}
+
+
+/* Function returns distance in inches. */
+double hcsr_distance_in(double* distance) {
+  /* Get distance from sensor in centimeters * 0.39370078740157 = inches. */
+  double distance_in = hcsr_distance_cm(distance) * 0.39370078740157;
+ 
+  /* Return distance in inches. */
+  return distance_in;
+}
